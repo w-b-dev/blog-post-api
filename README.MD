@@ -83,6 +83,22 @@ aws lambda add-permission --function-name blog-post --action lambda:InvokeFuncti
 --principal sns.amazonaws.com --source-arn arn:aws:sns:us-east-2:123456789012:my-topic
 ```
 ----------NOTE-------------
+
+### Create stages
+
+It is useful to have stages for `dev` and `prod`.
+
+```
+aws apigatewayv2 create-stage \
+  --api-id foo \
+  --stage-name dev
+```
+And `foo` above comes from
+
+```
+aws apigatewayv2 get-apis
+```
+
 ## Script to get logs
 
 - create `get-logs.sh`
