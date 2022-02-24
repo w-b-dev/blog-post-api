@@ -53,10 +53,12 @@ zip function.zip index.js
 ```aw
 aws lambda create-function --function-name blog-post \
 --zip-file fileb://function.zip --handler index.handler --runtime nodejs12.x \
---role arn:aws:iam::MY_VERY_OWN_ACCOUNT_UD:role/lambda-ex
+--role arn:aws:iam::ACCOUNT:role/lambda-ex
 ```
 ### AWS API Gateway
 By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint.
+
+- from the previous command we get `arn:aws:lambda:REGION:ACCOUNT:function:FUNCTION_NAME`
 
 ```
 aws apigatewayv2 create-api \
@@ -64,6 +66,8 @@ aws apigatewayv2 create-api \
   --description "a catch all api endpoint for blog posts"
   --protocol-type HTTP 
   --target TYPE-THE-FUNCTION-ARN-HERE
+  --disable-execute-api-endpoint
+  --route-key v1
 ```
 
 We should now have an endpoint generated at `https://foo.execute-api.bar.amazonaws.com/blog-post` which includes the name of the lambda
