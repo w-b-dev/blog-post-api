@@ -1,0 +1,7 @@
+{
+  "client_id": "78703",
+  "redirect_uri": "https://wp-api-dev.w-b.dev",
+  "client_secret": "9RfRhjzCeiqDylMQzS1SLSk33PO2H9dac2Usj1T0cPPNhmUbmwWPvScMD51A5TEN",
+  "code": "9Zvg0aHGUu",
+  "grant_type": "authorization_code"
+}

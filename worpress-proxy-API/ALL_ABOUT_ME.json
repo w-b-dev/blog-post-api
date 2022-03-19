@@ -1,0 +1,50 @@
+{
+  "ID": 811906,
+  "display_name": "Daniel",
+  "username": "codeincanada",
+  "email": "iam@w-b.dev",
+  "primary_blog": 143663682,
+  "primary_blog_url": "http://blog.brasileiro.ca",
+  "primary_blog_is_jetpack": true,
+  "language": "en",
+  "locale_variant": "",
+  "token_site_id": 44555989,
+  "token_scope": [
+    ""
+  ],
+  "avatar_URL": "https://1.gravatar.com/avatar/a1b8deb801751a5d51d5908755b895cb?s=96&d=identicon&r=G",
+  "profile_URL": "http://en.gravatar.com/codeincanada",
+  "verified": true,
+  "email_verified": true,
+  "date": "2007-02-16T16:24:11+00:00",
+  "site_count": 10,
+  "jetpack_site_count": 3,
+  "visible_site_count": 10,
+  "jetpack_visible_site_count": 3,
+  "has_unseen_notes": false,
+  "newest_note_type": "",
+  "phone_account": false,
+  "meta": {
+    "links": {
+      "self": "https://public-api.wordpress.com/rest/v1.1/me",
+      "help": "https://public-api.wordpress.com/rest/v1.1/me/help",
+      "site": "https://public-api.wordpress.com/rest/v1.1/sites/44555989",
+      "flags": "https://public-api.wordpress.com/rest/v1.1/me/flags"
+    },
+    "marketing_price_group": false,
+    "plans_reorder_abtest_variation": "control"
+  },
+  "is_valid_google_apps_country": true,
+  "user_ip_country_code": "CA",
+  "social_login_connections": [
+    {
+      "service": "apple",
+      "service_user_email": "qtfwnxmmjd@privaterelay.appleid.com",
+      "service_user_id": "001908.92b8dce53e38429cb86140ec7c3caafb.1304"
+    }
+  ],
+  "social_signup_service": "apple",
+  "abtests": {},
+  "i18n_empathy_mode": false,
+  "use_fallback_for_incomplete_languages": false
+}

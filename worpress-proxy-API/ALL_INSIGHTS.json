@@ -1,0 +1,49 @@
+{
+  "ID": 78703,
+  "name": "lambda",
+  "insights": [
+    "rest-api-calls",
+    "rest-api-writes",
+    "rest-api-reads",
+    "rest-api-errors",
+    "api-insights-connections",
+    "api-insights-posts",
+    "api-insights-comments",
+    "api-insights-likes"
+  ],
+  "today": {
+    "rest_api_calls": {
+      "number": null,
+      "percent": "%"
+    },
+    "rest_api_writes": {
+      "number": null,
+      "percent": "%"
+    },
+    "rest_api_reads": {
+      "number": null,
+      "percent": "%"
+    },
+    "rest_api_errors": {
+      "number": null,
+      "percent": "%"
+    },
+    "api_insights_connections": {
+      "number": "3",
+      "percent": "%"
+    },
+    "api_insights_posts": {
+      "number": null,
+      "percent": "%"
+    },
+    "api_insights_comments": {
+      "number": null,
+      "percent": "%"
+    },
+    "api_insights_likes": {
+      "number": null,
+      "percent": "%"
+    }
+  },
+  "has_custom": false
+}

@@ -1,0 +1,4 @@
+{
+  "error": "authorization_required",
+  "message": "Access token does not have the required scope"
+}
