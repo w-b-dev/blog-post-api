@@ -1,4 +1,4 @@
-const { Client } = require("cassandra-driver"); // 🤩 a estrela de hoje
+const { Client } = require("cassandra-driver");
 
 /**
  * This is the ROUTE-LEVEL handler for GET requests
@@ -11,7 +11,7 @@ const { Client } = require("cassandra-driver"); // 🤩 a estrela de hoje
 const handlerGET = async (isDevEnvironment, stageVariables, path, context) => {
   const cassandraConfig = {
     cloud: {
-      secureConnectBundle: "secure-bundle.zip",
+      secureConnectBundle: stageVariables.secure_bundle,
     },
     credentials: {
       username: stageVariables.astra_username,
@@ -22,11 +22,11 @@ const handlerGET = async (isDevEnvironment, stageVariables, path, context) => {
     },
     keyspace: "posts",
   };
-  const clienteCassandra = new Client(cassandraConfig); // inicializa o cliente
-  await clienteCassandra.connect(); // aguarda a conexão ao banco
+  const clienteCassandra = new Client(cassandraConfig);
+  await clienteCassandra.connect();
   const consultaCQL = `SELECT * FROM system.local`; // 1a consulta CQL do dia
   const respostaConsulta = await clienteCassandra.execute(consultaCQL);
-  await clienteCassandra.shutdown(); // desconecta ao banco
+  await clienteCassandra.shutdown();
   if (isDevEnvironment) {
     const { logStreamName, awsRequestId } = context;
     return {
@@ -41,10 +41,8 @@ const handlerGET = async (isDevEnvironment, stageVariables, path, context) => {
     };
   }
 
-  const response = {
-    message: "Winter is coming",
+  return {
+    message: respostaConsulta,
   };
-  response.message = "THIS-IS-SPARTA!!!";
-  return response;
 };
 exports.handler = handlerGET;
