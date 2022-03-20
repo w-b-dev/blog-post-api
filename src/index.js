@@ -1,20 +1,7 @@
-const handlerGET = (stage, stageVariables, path) => {
-  return {
-    // statusCode: 200,
-    message: `GET ${path}`,
-    stage: stage === "prod" ? null : stage,
-    stageVariables: stage === "prod" ? null : stageVariables,
-  };
-};
-const handlerPUT = (stage, stageVariables, body, path) => {
-  return {
-    // statusCode: 201,
-    message: `PUT ${path}`,
-    stage: stage === "prod" ? null : stage,
-    stageVariables: stage === "prod" ? null : stageVariables,
-    body: JSON.parse(body),
-  };
-};
+const GET = require("./get");
+const PUT = require("./put");
+
+const DEV_STRING = "d";
 
 exports.handler = async function (event, context) {
   const {
@@ -25,15 +12,26 @@ exports.handler = async function (event, context) {
     body,
     stageVariables,
   } = event;
-
-  if (method === "GET") {
-    return handlerGET(stage, stageVariables, path);
+  const isDevEnvironment = stage === DEV_STRING;
+  try {
+    if (method.toUpperCase() === "GET") {
+      return GET.handler(isDevEnvironment, stageVariables, path, context);
+    }
+    if (method.toUpperCase() === "PUT") {
+      return PUT.handler(isDevEnvironment, stageVariables, body, path, context);
+    }
+  } catch (e) {
+    console.log(e);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        message: e,
+      }),
+    };
   }
-  if (method === "PUT") {
-    return handlerPUT(stage, stageVariables, body, path);
-  }
 
-  // Note: the below is not a valid response, since both teh route and the integration is not configured
+  // Note: the below is not a valid response, since both
+  // route and integration are not configured for anything other than GET/PUT
   // https://console.aws.amazon.com/apigateway/main/develop/routes
   // https://console.aws.amazon.com/apigateway/main/develop/integrations/attach
   return {

@@ -1,0 +1,11 @@
+{
+  "name": "astra-db-aws-api-gateway-lambda",
+  "version": "1.0.0",
+  "description": "a serverless function that consumes AstraDB, a noSQL on Apache Cassandra on AWS API Gateway and Lambda",
+  "main": "index.js",
+  "author": "Daniel S<iam@w-b.dev>",
+  "license": "MIT",
+  "dependencies": {
+    "cassandra-driver": "^4.6.3"
+  }
+}
