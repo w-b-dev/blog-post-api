@@ -1,9 +1,11 @@
 const GET = require("./get");
 const PUT = require("./put");
+const { Client } = require("cassandra-driver");
 
 const DEV_STRING = "d";
 
 exports.handler = async function (event, context) {
+  // GET USEFUL ENVS FROM AWS AND REQUEST
   const {
     requestContext: {
       stage,
@@ -12,13 +14,44 @@ exports.handler = async function (event, context) {
     body,
     stageVariables,
   } = event;
+  // USEFUL VARIABLE TO PROVIDE MORE INFORMATION
   const isDevEnvironment = stage === DEV_STRING;
+  // SHAREABLE CASSANDRA CONFIG
+  const cassandraConfig = {
+    cloud: {
+      secureConnectBundle: stageVariables.secure_bundle,
+    },
+    credentials: {
+      username: stageVariables.astra_username,
+      password: Buffer.from(
+        stageVariables.astra_password_base64,
+        "base64"
+      ).toString("ascii"),
+    },
+    keyspace: "posts",
+  };
+  const clienteCassandra = new Client(cassandraConfig);
+  await clienteCassandra.connect();
+  // ROUTES
   try {
     if (method.toUpperCase() === "GET") {
-      return GET.handler(isDevEnvironment, stageVariables, path, context);
+      return GET.handler(
+        clienteCassandra,
+        isDevEnvironment,
+        stageVariables,
+        path,
+        context
+      );
     }
     if (method.toUpperCase() === "PUT") {
-      return PUT.handler(isDevEnvironment, stageVariables, body, path, context);
+      return PUT.handler(
+        clienteCassandra,
+        isDevEnvironment,
+        stageVariables,
+        JSON.parse(body),
+        path,
+        context
+      );
     }
   } catch (e) {
     console.log(e);
