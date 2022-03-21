@@ -1,7 +1,9 @@
-const { v4: uuidv4 } = require("uuid");
+const { types } = require("cassandra-driver");
+const uuid = types.Uuid;
 
 const deletarTabelaCQL = `
     DROP TABLE IF EXISTS posts.posts_by_day_of_month`;
+// https://docs.datastax.com/en/astra-cql/doc/cql/cql_reference/refDataTypes.html
 const criacaoTabelaCQL = `
     CREATE TABLE IF NOT EXISTS posts.posts_by_day_of_month
     (
@@ -42,7 +44,7 @@ const handlerPUT = async (
   path,
   context
 ) => {
-  const idGerado = uuidv4();
+  const idGerado = uuid.random();
   const agora = new Date(Date.now());
   const dataDeHoje = agora.toLocaleDateString("en-ca", {
     timeZone: "America/Halifax",
@@ -64,6 +66,8 @@ const handlerPUT = async (
   ];
   // await clienteCassandra.execute(deletarTabelaCQL);
   await clienteCassandra.execute(criacaoTabelaCQL);
+  // INSERTS, UPDATES AND DELETES CAN BE BATCHED
+  // https://docs.datastax.com/en/developer/nodejs-driver/4.6/features/batch/
   await clienteCassandra.execute(insercaoTabelaCQL, insercaoTabelaParams, {
     prepare: true,
   });

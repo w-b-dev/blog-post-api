@@ -19,5 +19,6 @@
   "homepage": "https://github.com/w-b-dev/blog-post-api#readme",
   "devDependencies": {
     "prettier": "^2.5.1"
-  }
+  },
+  "dependencies": {}
 }

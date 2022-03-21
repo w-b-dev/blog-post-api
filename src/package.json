@@ -6,7 +6,6 @@
   "author": "Daniel S<iam@w-b.dev>",
   "license": "MIT",
   "dependencies": {
-    "cassandra-driver": "^4.6.3",
-    "uuid": "^8.3.2"
+    "cassandra-driver": "^4.6.3"
   }
 }
