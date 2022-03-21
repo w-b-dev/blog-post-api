@@ -95,7 +95,6 @@ const handlerPUT = async (
    * - if content was created, return 201
    * - if content was modified, return 204 */
   return {
-    statusCode: 201,
     body: idGerado,
   };
 };
