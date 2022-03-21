@@ -37,7 +37,7 @@ const handlerGET = async (
   // SHUTDOWN ANTES DE RETORNAR
   await clienteCassandra.shutdown();
   return {
-    message: respostaConsulta,
+    message: rows,
   };
 };
 exports.handler = handlerGET;
