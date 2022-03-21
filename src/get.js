@@ -1,39 +1,32 @@
-const { Client } = require("cassandra-driver");
-
 /**
  * This is the ROUTE-LEVEL handler for GET requests
+ * @param clienteCassandra
  * @param isDevEnvironment
  * @param stageVariables
  * @param path
  * @param context
  * @returns {{message: string}|{isDevEnvironment: string, path: string, context, message: string, stageVariables}}
  */
-const handlerGET = async (isDevEnvironment, stageVariables, path, context) => {
-  const cassandraConfig = {
-    cloud: {
-      secureConnectBundle: stageVariables.secure_bundle,
-    },
-    credentials: {
-      username: stageVariables.astra_username,
-      password: Buffer.from(
-        stageVariables.astra_password_base64,
-        "base64"
-      ).toString("ascii"),
-    },
-    keyspace: "posts",
-  };
-  const clienteCassandra = new Client(cassandraConfig);
-  await clienteCassandra.connect();
-  const consultaCQL = `SELECT * FROM system.local`; // 1a consulta CQL do dia
+const handlerGET = async (
+  clienteCassandra,
+  isDevEnvironment,
+  stageVariables,
+  path,
+  context
+) => {
+  const consultaCQL = `SELECT creation_date, timestamp, id, title FROM posts.posts_by_day_of_month`; // 1a consulta CQL do dia
   const respostaConsulta = await clienteCassandra.execute(consultaCQL);
-  await clienteCassandra.shutdown();
+  const rows = Array.from(respostaConsulta.rows);
+
   if (isDevEnvironment) {
     const { logStreamName, awsRequestId } = context;
+    // SHUTDOWN ANTES DE RETORNAR
+    await clienteCassandra.shutdown();
     return {
       isDevEnvironment: "🙈🙊🙉",
-      path: `GET ${path}`,
-      message: respostaConsulta,
-      stageVariables: stageVariables,
+      // path: `GET ${path}`,
+      message: rows,
+      // stageVariables: stageVariables,
       tracing: {
         logStreamName,
         awsRequestId,
@@ -41,6 +34,8 @@ const handlerGET = async (isDevEnvironment, stageVariables, path, context) => {
     };
   }
 
+  // SHUTDOWN ANTES DE RETORNAR
+  await clienteCassandra.shutdown();
   return {
     message: respostaConsulta,
   };
