@@ -4,3 +4,4 @@ build
 *.zip
 *.csv
 .env
+.DS_Store
