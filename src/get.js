@@ -14,7 +14,7 @@ const handlerGET = async (
   path,
   context
 ) => {
-  const consultaCQL = `SELECT creation_date, timestamp, id, title FROM posts.posts_by_day_of_month`; // 1a consulta CQL do dia
+  const consultaCQL = `SELECT * FROM posts.posts_by_date`; // 1a consulta CQL do dia
   const respostaConsulta = await clienteCassandra.execute(consultaCQL);
   const rows = Array.from(respostaConsulta.rows);
 
