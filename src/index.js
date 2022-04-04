@@ -1,5 +1,6 @@
 const GET = require("./get");
 const PUT = require("./put");
+const DELETE = require("./delete");
 const { Client } = require("cassandra-driver");
 
 const DEV_STRING = "d";
@@ -45,6 +46,16 @@ exports.handler = async function (event, context) {
     }
     if (method.toUpperCase() === "PUT") {
       return PUT.handler(
+        clienteCassandra,
+        isDevEnvironment,
+        stageVariables,
+        JSON.parse(body),
+        path,
+        context
+      );
+    }
+    if (method.toUpperCase() === "DELETE") {
+      return DELETE.handler(
         clienteCassandra,
         isDevEnvironment,
         stageVariables,

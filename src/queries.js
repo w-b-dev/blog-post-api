@@ -33,3 +33,7 @@ exports.insercaoTabelaCQLPostsByDate = `
         post_category
     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
   `; // prepared statement para insercao na tabela
+
+exports.deleteByID = `
+    DELETE FROM posts.posts_by_date WHERE post_creation_date=? AND post_timestamp=? AND post_id=?
+  `; // prepared statement para insercao na tabela
