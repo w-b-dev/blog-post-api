@@ -55,14 +55,29 @@ exports.handler = async function (event, context) {
       );
     }
     if (method.toUpperCase() === "DELETE") {
-      return DELETE.handler(
-        clienteCassandra,
-        isDevEnvironment,
-        stageVariables,
-        JSON.parse(body),
-        path,
-        context
-      );
+      try {
+        return DELETE.handler(
+            clienteCassandra,
+            isDevEnvironment,
+            stageVariables,
+            JSON.parse(body),
+            path,
+            context
+        );
+      } catch(e) {
+        return {
+          statusCode: 400,
+          body: Math.round(Math.random()) ? `SEM BODY (resposta simples como string)` : JSON.stringify({
+            isDevEnvironment: "🚧 ➲ 🚧 ➲ 🚧 ➲ 🚧",
+            message: `SEM BODY ${JSON.stringify(e)} (resposta como objeto)`
+          }),
+          // stageVariables,
+          // tracing: {
+          //   logStreamName,
+          //   awsRequestId,
+          // },
+        };
+      }
     }
   } catch (e) {
     console.log(e);
