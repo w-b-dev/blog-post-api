@@ -14,6 +14,7 @@ exports.handler = async function (event, context) {
     },
     body,
     stageVariables,
+    queryStringParameters
   } = event;
   // USEFUL VARIABLE TO PROVIDE MORE INFORMATION
   const isDevEnvironment = stage === DEV_STRING;
@@ -60,7 +61,8 @@ exports.handler = async function (event, context) {
             clienteCassandra,
             isDevEnvironment,
             stageVariables,
-            JSON.parse(body),
+            // JQUERY does not use body for DELETE, but params
+            queryStringParameters,
             path,
             context
         );

@@ -16,14 +16,14 @@ const handlerDELETE = async (
     clienteCassandra,
     isDevEnvironment,
     stageVariables,
-    body,
+    queryStringParameters,
     path,
     context
 ) => {
     // POST_ID
-    const id = body.data.post_id;
-    const timestamp = body.data.post_timestamp;
-    const creation_date = body.data.post_creation_date;
+    const id = queryStringParameters.post_id;
+    const timestamp = queryStringParameters.post_timestamp;
+    const creation_date = queryStringParameters.post_creation_date;
     // INSERTS, UPDATES AND DELETES CAN BE BATCHED
     // https://docs.datastax.com/en/developer/nodejs-driver/4.6/features/batch/
     await clienteCassandra.execute(deleteByID, [creation_date, timestamp, id], {
@@ -37,6 +37,7 @@ const handlerDELETE = async (
         return {
             isDevEnvironment: "🚧 ➲ 🚧 ➲ 🚧 ➲ 🚧",
             message: `ID ${id} deletado`,
+            // queryStringParameters: queryStringParameters,
             // stageVariables,
             tracing: {
                 logStreamName,
