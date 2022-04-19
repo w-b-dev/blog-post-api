@@ -1,1 +1,81 @@
-{"isDevEnvironment":"🙈🙊🙉","message":[{"creation_date":"2022-03-20T00:00:00.000Z","timestamp":"2022-03-20T23:28:23.000Z","id":"dadf6d08-8b64-45e1-b268-bcecda2a7ede","title":"Lorem [11:28:23 p.m.]"},{"creation_date":"2022-03-20T00:00:00.000Z","timestamp":"2022-03-20T23:28:28.000Z","id":"28775f09-0ef0-48b1-8a77-7fcd2218e371","title":"Lorem [11:28:28 p.m.]"},{"creation_date":"2022-03-20T00:00:00.000Z","timestamp":"2022-03-20T23:28:35.000Z","id":"a241056d-fb40-4a47-aeae-893aff7bc183","title":"Lorem [11:28:35 p.m.]"},{"creation_date":"2022-03-20T00:00:00.000Z","timestamp":"2022-03-20T23:28:39.000Z","id":"a04c7f15-dac0-4a69-ab3b-3531d324baff","title":"Lorem [11:28:39 p.m.]"},{"creation_date":"2022-03-20T00:00:00.000Z","timestamp":"2022-03-20T23:28:45.000Z","id":"79d4d516-8e26-4d6e-9edd-3cdf66270411","title":"Lorem [11:28:45 p.m.]"},{"creation_date":"2022-03-20T00:00:00.000Z","timestamp":"2022-03-20T23:28:49.000Z","id":"14322d96-4370-4b6c-8c6b-a314228a295e","title":"Lorem [11:28:49 p.m.]"},{"creation_date":"2022-03-20T00:00:00.000Z","timestamp":"2022-03-20T23:28:53.000Z","id":"514c9a84-8f2e-4e3a-8436-9568b86614df","title":"Lorem [11:28:53 p.m.]"},{"creation_date":"2022-03-20T00:00:00.000Z","timestamp":"2022-03-20T23:28:57.000Z","id":"1eaa616f-4f43-4cd7-a0da-61d9f0acab9e","title":"Lorem [11:28:57 p.m.]"},{"creation_date":"2022-03-20T00:00:00.000Z","timestamp":"2022-03-20T23:29:01.000Z","id":"afc76e25-2bb3-4996-98db-cebdc3216cef","title":"Lorem [11:29:01 p.m.]"},{"creation_date":"2022-03-20T00:00:00.000Z","timestamp":"2022-03-20T23:32:21.000Z","id":"690e835d-36b7-4db9-81ff-eb5665cb9119","title":"Lorem [11:32:21 p.m.]"},{"creation_date":"2022-03-21T00:00:00.000Z","timestamp":"2022-03-21T00:01:40.000Z","id":"8a57a08d-4007-4971-99ea-5fdc52dc1b13","title":"Lorem [12:01:40 a.m.]"},{"creation_date":"2022-03-21T00:00:00.000Z","timestamp":"2022-03-21T00:01:47.000Z","id":"650fa0cf-9a6d-44ea-bca0-44c36f9a8fdb","title":"Lorem [12:01:47 a.m.]"}],"tracing":{"logStreamName":"2022/03/21/[$LATEST]38fe7fb860d443e8a0bbc2987304d353","awsRequestId":"e24c18ef-ba92-45c6-8d63-e9bd2332782c"}}
+{
+  "isDevEnvironment": "🙈🙊🙉",
+  "message": [
+    {
+      "creation_date": "2022-03-20T00:00:00.000Z",
+      "timestamp": "2022-03-20T23:28:23.000Z",
+      "id": "dadf6d08-8b64-45e1-b268-bcecda2a7ede",
+      "title": "Lorem [11:28:23 p.m.]"
+    },
+    {
+      "creation_date": "2022-03-20T00:00:00.000Z",
+      "timestamp": "2022-03-20T23:28:28.000Z",
+      "id": "28775f09-0ef0-48b1-8a77-7fcd2218e371",
+      "title": "Lorem [11:28:28 p.m.]"
+    },
+    {
+      "creation_date": "2022-03-20T00:00:00.000Z",
+      "timestamp": "2022-03-20T23:28:35.000Z",
+      "id": "a241056d-fb40-4a47-aeae-893aff7bc183",
+      "title": "Lorem [11:28:35 p.m.]"
+    },
+    {
+      "creation_date": "2022-03-20T00:00:00.000Z",
+      "timestamp": "2022-03-20T23:28:39.000Z",
+      "id": "a04c7f15-dac0-4a69-ab3b-3531d324baff",
+      "title": "Lorem [11:28:39 p.m.]"
+    },
+    {
+      "creation_date": "2022-03-20T00:00:00.000Z",
+      "timestamp": "2022-03-20T23:28:45.000Z",
+      "id": "79d4d516-8e26-4d6e-9edd-3cdf66270411",
+      "title": "Lorem [11:28:45 p.m.]"
+    },
+    {
+      "creation_date": "2022-03-20T00:00:00.000Z",
+      "timestamp": "2022-03-20T23:28:49.000Z",
+      "id": "14322d96-4370-4b6c-8c6b-a314228a295e",
+      "title": "Lorem [11:28:49 p.m.]"
+    },
+    {
+      "creation_date": "2022-03-20T00:00:00.000Z",
+      "timestamp": "2022-03-20T23:28:53.000Z",
+      "id": "514c9a84-8f2e-4e3a-8436-9568b86614df",
+      "title": "Lorem [11:28:53 p.m.]"
+    },
+    {
+      "creation_date": "2022-03-20T00:00:00.000Z",
+      "timestamp": "2022-03-20T23:28:57.000Z",
+      "id": "1eaa616f-4f43-4cd7-a0da-61d9f0acab9e",
+      "title": "Lorem [11:28:57 p.m.]"
+    },
+    {
+      "creation_date": "2022-03-20T00:00:00.000Z",
+      "timestamp": "2022-03-20T23:29:01.000Z",
+      "id": "afc76e25-2bb3-4996-98db-cebdc3216cef",
+      "title": "Lorem [11:29:01 p.m.]"
+    },
+    {
+      "creation_date": "2022-03-20T00:00:00.000Z",
+      "timestamp": "2022-03-20T23:32:21.000Z",
+      "id": "690e835d-36b7-4db9-81ff-eb5665cb9119",
+      "title": "Lorem [11:32:21 p.m.]"
+    },
+    {
+      "creation_date": "2022-03-21T00:00:00.000Z",
+      "timestamp": "2022-03-21T00:01:40.000Z",
+      "id": "8a57a08d-4007-4971-99ea-5fdc52dc1b13",
+      "title": "Lorem [12:01:40 a.m.]"
+    },
+    {
+      "creation_date": "2022-03-21T00:00:00.000Z",
+      "timestamp": "2022-03-21T00:01:47.000Z",
+      "id": "650fa0cf-9a6d-44ea-bca0-44c36f9a8fdb",
+      "title": "Lorem [12:01:47 a.m.]"
+    }
+  ],
+  "tracing": {
+    "logStreamName": "2022/03/21/[$LATEST]38fe7fb860d443e8a0bbc2987304d353",
+    "awsRequestId": "e24c18ef-ba92-45c6-8d63-e9bd2332782c"
+  }
+}

@@ -1,2 +1,2 @@
 #!/bin/bash
-curl https://api.w-b.dev --request GET --verbose | jq '.'
+curl https://api.w-b.dev/blog/ --request GET --verbose | jq '.'
