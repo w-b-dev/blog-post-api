@@ -41,7 +41,9 @@ const handlerPUT = async (
         timeZone: "America/Halifax",
         hour12: false,
       })
-      .replace(", ", " "),
+      .replace(", ", " ")
+      .replace(/\//g, "-")
+      .replace(" 24:", " 00:"),
     idGerado,
     body.data.post_title,
     body.data.post_body,
