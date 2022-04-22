@@ -16,7 +16,8 @@ const handlerGET = async (
   path,
   context
 ) => {
-  const consultaCQL = `SELECT * FROM posts.posts_by_date WHERE post_creation_date = '${getDataDeHoje()}' ORDER BY post_timestamp DESC ALLOW FILTERING`; // 1a consulta CQL do dia
+  const consultaCQL = `SELECT * FROM posts.posts_by_date`; // 1a consulta CQL do dia
+  // const consultaCQL = `SELECT * FROM posts.posts_by_date WHERE post_creation_date = '${getDataDeHoje()}' ORDER BY post_timestamp DESC ALLOW FILTERING`; // 1a consulta CQL do dia
   const respostaConsulta = await clienteCassandra.execute(consultaCQL);
   const rows = Array.from(respostaConsulta.rows);
 
